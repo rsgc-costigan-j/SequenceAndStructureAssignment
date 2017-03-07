@@ -22,20 +22,35 @@ import PlaygroundSupport
 let canvas = Canvas(width: 500, height: 500)
 
 // Generate a grid
-canvas.drawShapesWithFill = false
-canvas.defaultBorderWidth = 1
+canvas.drawShapesWithFill = true
+canvas.drawShapesWithBorders = true
+canvas.borderColor = Color.black
+canvas.defaultBorderWidth = 10
+
 
 
 // This loop makes a 10 rows of columns
-for x in stride(from: 25, through: 475, by: 50){
+for x in stride(from: 0, through: 500, by: 100){
     
     // This loop makes a single column, bottom to top
-    for y in stride(from: 25, through: 475, by: 50) {
-        
+    for y in stride(from: 0, through: 500, by: 100) {
+    
         // Draw the shapes
-        canvas.drawEllipse(centreX: x, centreY: y, width: 2, height: 2)
-        canvas.drawRectangle(centreX: x, centreY: y, width: 50, height: 50)
-    }
+        var z = random(from: 0, toButNotIncluding: 361)
+        canvas.fillColor = Color(hue: z, saturation: 100, brightness: 100, alpha: 60)
+                  canvas.lineColor = Color.black
+        canvas.drawRectangle(bottomLeftX: x, bottomLeftY: y, width: 100, height: 100)
+        canvas.defaultLineWidth = 7
+        var o = 100
+        var i = random(from: 0, toButNotIncluding: 2)
+        if i == 1{canvas.drawLine(fromX: x, fromY: y, toX: x+100, toY: y+100)}
+        else{canvas.drawLine(fromX: x+100, fromY: y, toX: x, toY: y+100)}
+        canvas.drawText(message: "Supreme", size: 50, x: 250, y: 250)
+        
+        
+        
+        }
+    
 }
 
 
