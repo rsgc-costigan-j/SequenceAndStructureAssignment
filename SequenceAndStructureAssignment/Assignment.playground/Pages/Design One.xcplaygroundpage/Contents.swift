@@ -45,11 +45,11 @@ for x in stride(from: 0, through: 500, by: 100){
         var i = random(from: 0, toButNotIncluding: 2)
         if i == 1{canvas.drawLine(fromX: x, fromY: y, toX: x+100, toY: y+100)}
         else{canvas.drawLine(fromX: x+100, fromY: y, toX: x, toY: y+100)}
-        canvas.drawText(message: "Supreme", size: 50, x: 250, y: 250)
-        
-        
-        
         }
+    canvas.fillColor = Color.red
+    canvas.textColor = Color.white
+    canvas.drawRectangle(bottomLeftX: 150, bottomLeftY: 325, width: 200, height: 50)
+    canvas.drawText(message: "Supreme", size: 45, x: 161, y: 325)
     
 }
 
