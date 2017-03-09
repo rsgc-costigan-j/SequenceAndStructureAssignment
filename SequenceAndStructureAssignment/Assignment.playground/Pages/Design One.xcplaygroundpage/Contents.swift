@@ -35,17 +35,27 @@ for x in stride(from: 0, through: 500, by: 100){
     // This loop runs 25 times
     for y in stride(from: 0, through: 500, by: 100) {
         
-        // Random color generator
-        var z = random(from: 0, toButNotIncluding: 361)
-        canvas.fillColor = Color(hue: z, saturation: 100, brightness: 100, alpha: 60)
+        // Random colour generator and setting line colours
+        var c = random(from: 0, toButNotIncluding: 361)
+        canvas.fillColor = Color(hue: c, saturation: 100, brightness: 100, alpha: 60)
         canvas.lineColor = Color.black
+        
+        //Drawing 2x2 rectangles
         canvas.drawRectangle(bottomLeftX: x, bottomLeftY: y, width: 100, height: 100)
+        
+        //setting up the lines
         canvas.defaultLineWidth = 7
+        
+        // 'o' for orientation and 'i' just a placeholder for a random number
         var o = 100
         var i = random(from: 0, toButNotIncluding: 2)
+        
+        // telling program which way to draw line based on random number
         if i == 1{canvas.drawLine(fromX: x, fromY: y, toX: x+100, toY: y+100)}
         else{canvas.drawLine(fromX: x+100, fromY: y, toX: x, toY: y+100)}
     }
+    
+    //drawing title line and covering the top row of coloured squares
     canvas.fillColor = Color.white
     canvas.textColor = Color.black
     canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 500, width: 500, height: 100)
